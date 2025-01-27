@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #12141d;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.gradient-button {
+  position: relative;
+  display: inline-block;
+  padding: 9px 24px;
+  font-size: 16px;
+  font-weight: 400;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  background: linear-gradient(to right, #3b82f6, #9333ea); /* Default gradient */
+  z-index: 1;
+  transition: transform 0.2s ease;
+}
+
+.gradient-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to right, #9333ea, #ec4899); /* Hover gradient */
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+.gradient-button:hover::before {
+  opacity: 1;
+}
+
+.gradient-button:active {
+  background: linear-gradient(to right, #1d4ed8, #6b21a8); /* Active gradient */
+  transform: scale(0.95); /* Pressed effect */
+}
+
+.gradient-bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle, #6b21a825 0%, #12141d 60%);
+}
+
+
+
+/* ---------------------------- */
+.gradient-button-play {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  background: transparent;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.5s ease, color 0.5s ease, transform 0.5s ease;
+}
+
+/* Smooth gradient border transition */
+.gradient-button-play:hover {
+  border-image-source: linear-gradient(to right, #3b82f6, #9333ea);
+  border-image-slice: 1;
+}
+
+/* Gradient text and icon on hover */
+.gradient-button-play:hover .gradient-icon,
+.gradient-button-play:hover .gradient-text {
+  background: linear-gradient(to right, #3b82f6, #9333ea);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background 0.5s ease, -webkit-text-fill-color 0.5s ease;
+}
+
+/* Icon styles */
+.gradient-icon {
+  font-size: 20px;
+  transition: transform 0.5s ease, background 0.5s ease;
+}
+
+/* Icon hover effect */
+.gradient-button-play:hover .gradient-icon {
+  transform: scale(1.1);
+}
+
+/* Text styles */
+.gradient-text {
+  transition: color 0.5s ease, background 0.5s ease;
+}
+
+/* ------------------------ */
+
+.bg-gradient{
+  background: linear-gradient(to right, #3b82f6, #9333ea);
+}
